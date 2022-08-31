@@ -1,4 +1,3 @@
-
 pip>=9
 setuptools>=26
 wheel>=0.29
@@ -14,3 +13,4 @@ termcolor
 uvicorn
 fastapi
 pydantic
+black
