@@ -3,7 +3,7 @@ import uvicorn
 from fastapi import FastAPI
 import pickle
 from model import IrisModel, IrisSpecies
-
+import requests
 
 
 # 2. Create the app object
@@ -13,7 +13,20 @@ model = IrisModel()
 # 3. Index route, opens automatically on http://127.0.0.1:8000
 @app.get('/')
 def index():
-    return {'message': 'Hello, stranger'}
+    return {'message': 'Hello, stranger, from GitHub actions'}
+headers = {
+   'accept': 'application/json',
+   'Content-Type': 'application/json',
+}
+
+url = 'https://irisapigitzohra.azurewebsites.net/predict'
+data = '{"sepal_length": 6.2,"sepal_width": 3.4,"petal_length": 5.4,"petal_width": 2.3}'
+response = requests.get(url, headers=headers, data=data)
+response.text
+Result: '{"prediction":"virginica","probability":0.97}'
+
+headers
+
 
 
 # 4. Expose the prediction functionality, make a prediction from the passed
