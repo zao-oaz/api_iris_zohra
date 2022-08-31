@@ -9,10 +9,8 @@ numpy
 scikit-learn
 joblib
 memoized-property
-mlflow
 gcsfs
 termcolor
 uvicorn
 fastapi
 pydantic
-
